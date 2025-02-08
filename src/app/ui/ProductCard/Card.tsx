@@ -13,38 +13,73 @@ type CardProps = {
 
 
 export const Card: React.FC<CardProps> = ({ cruise }) => {
-
     return(
-        <article className="flex w-full rounded-sm shadow-lg overflow-hidden" aria-label="Cruise Package">
-            {/*  Image take up 1/3 of overall card*/}
-              <div className="w-1/3 h-full relative">
+        <article className="
+                grid
+                grid-cols-[1fr_2fr]
+                w-full rounded-sm
+                shadow-lg hover:shadow-xl
+                transition-shadow
+                duration-300
+                ease-in-out
+                overflow-hidden 
+                my-4
+            "
+            aria-label="Cruise Package"
+        >
+
+        
+            {/* Image section */}
+            <div className="relative">
                 <Image 
                     src={cruise.ship.image as string} 
                     alt={cruise.ship.name} 
                     className="object-cover"
                     width={500}
                     height={400}
-                
                 />
                 <time 
                     dateTime="2022-11-23" 
-                    className="absolute top-4 left-4 bg-black/50 text-white rounded"
+                    className="absolute top-4 left-4 bg-black/50 text-white rounded p-2"
                 >
                     Nov 23, 2022
                 </time>
             </div>
+            {/* END IMAGE */}
 
-            <div className="flex flex-col w-2/3">
-                <div className="h-2/3">ONE</div>
-                <div className="h-1/3 flex gap-7 bg-slate-100 w-full justify-end p-sm items-center">
-                    <div className="flex-column">
-                        <p className="text-xs text-slate-500 justify-self-end">
+            {/* Main Card */}
+            <div className="grid grid-rows-[2fr_1fr]">
+                {/* Upper content area */}
+                <div className="grid grid-cols-[3fr_1fr] p-6">
+                    <section>
+                        <h2 className="text-xl font-bold">
+                            {cruise.name}
+                        </h2>
+                    </section>
+                    <section className="flex flex-col items-end">
+                        <div className="w-24">
+                            <Image 
+                                src={cruise.ship.line.logo as string} 
+                                alt={cruise.ship.line.name} 
+                                width={100}
+                                height={50}
+                                className="w-full h-auto object-contain"
+                            />
+                        </div>
+                        <h2 className="text-xs text-slate-500 mt-2">
+                            {cruise.ship.line.name}
+                        </h2>
+                    </section>
+                </div>
+
+                {/* Bottom section */}
+                <div className="grid grid-cols-[1fr_auto] gap-4 bg-slate-100 items-center px-6">
+                    <div className="justify-self-end">
+                        <p className="text-xs text-slate-500">
                             Interior from
                         </p>
-                        <p className="font-bold justify-self-end">
-                            <sup>
-                                $
-                            </sup>
+                        <p className="font-bold text-xl">
+                            <sup className="text-sm">$</sup>
                             {cruise.price}
                         </p>
                     </div>
@@ -54,13 +89,12 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                             hover:bg-sailings/80
                             text-white
                             rounded-md
-                            px-2
+                            px-6
+                            py-3
                             font-medium
                             transition-colors
-                            h-3/4
-                            mr-5
                         ">
-                            See Sailings
+                        See Sailings
                     </button>
                 </div>
             </div>
