@@ -17,11 +17,11 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
     return(
         <article className="flex w-full rounded-sm shadow-lg overflow-hidden" aria-label="Cruise Package">
             {/*  Image take up 1/3 of overall card*/}
-              <div className="">
+              <div className="w-1/3 h-full ">
                 <Image 
                     src={cruise.ship.image as string} 
-                    alt="MSC Virtuosa cruise ship" 
-                    className="w-1/3 h-full object-cover"
+                    alt={cruise.ship.name} 
+                    className="object-cover"
                     width={500}
                     height={400}
                 
@@ -34,9 +34,37 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                 </time>
             </div>
 
-            <div>
-                <div></div>
-                <div></div>
+            <div className="flex flex-col">
+                <div className="h-3/4">ONE</div>
+                <div className="h-1/4 flex">
+                    <div>
+                        <p className="
+                            text-xs 
+                            text-slate-400
+                        ">
+                            Interior from
+                        </p>
+                        <p className="
+                            font-bold
+                        ">
+                            <sup>
+                                $
+                            </sup>
+                            {cruise.price}
+                        </p>
+                    </div>
+                    <button 
+                        className="
+                            bg-sailings
+                            hover:bg-sailings/80
+                            text-white
+                            rounded-md
+                            px-2
+                            font-medium
+                        ">
+                            See Sailings
+                        </button>
+                </div>
             </div>
         </article>
     )
