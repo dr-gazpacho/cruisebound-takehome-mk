@@ -3,7 +3,7 @@ import Image from "next/image";
 
 //temp
 import { useEffect } from "react";
-import { fetchTrips } from "./utils/data";
+import { fetchTrips } from "../utils/data";
 
 
 
@@ -14,7 +14,7 @@ export default function Home() {
       console.log({data, error});
     };
 
-    // doing it like this for now, 
+    // doing it like this for now -> implement zustand
     fetchData();
   }, [])
   return (
