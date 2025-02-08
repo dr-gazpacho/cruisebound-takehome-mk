@@ -1,4 +1,4 @@
-import { CruiseApiResponse } from "../app/types";
+import { CruiseApiResponse } from "../types";
 
 export class FetchError extends Error {
     constructor(
