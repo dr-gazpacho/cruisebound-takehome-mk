@@ -3,20 +3,18 @@ import Image from "next/image";
 
 //temp
 import { useEffect } from "react";
-import { fetchTrips } from "../utils/data";
+import { useCruiseStore } from "@/store/useCruiseStore";
 
 
 
 export default function Home() {
+  const { cruises, error, isLoading, fetchCruises } = useCruiseStore();
   useEffect(() => {
-    const fetchData = async () => {
-      const {data, error} = await fetchTrips();
-      console.log({data, error});
-    };
-
-    // doing it like this for now -> implement zustand
-    fetchData();
+    fetchCruises()
   }, [])
+
+  console.log({ cruises, error, isLoading });
+  
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
