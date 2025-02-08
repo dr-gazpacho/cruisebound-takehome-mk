@@ -17,7 +17,7 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
     return(
         <article className="flex w-full rounded-sm shadow-lg overflow-hidden" aria-label="Cruise Package">
             {/*  Image take up 1/3 of overall card*/}
-              <div className="w-1/3 h-full ">
+              <div className="w-1/3 h-full relative">
                 <Image 
                     src={cruise.ship.image as string} 
                     alt={cruise.ship.name} 
@@ -28,25 +28,20 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                 />
                 <time 
                     dateTime="2022-11-23" 
-                    className="top-4 left-4 bg-black/50 text-white p-2 rounded"
+                    className="absolute top-4 left-4 bg-black/50 text-white rounded"
                 >
                     Nov 23, 2022
                 </time>
             </div>
 
-            <div className="flex flex-col">
-                <div className="h-3/4">ONE</div>
-                <div className="h-1/4 flex">
-                    <div>
-                        <p className="
-                            text-xs 
-                            text-slate-400
-                        ">
+            <div className="flex flex-col w-2/3">
+                <div className="h-2/3">ONE</div>
+                <div className="h-1/3 flex gap-7 bg-slate-100 w-full justify-end p-sm items-center">
+                    <div className="flex-column">
+                        <p className="text-xs text-slate-500 justify-self-end">
                             Interior from
                         </p>
-                        <p className="
-                            font-bold
-                        ">
+                        <p className="font-bold justify-self-end">
                             <sup>
                                 $
                             </sup>
@@ -61,9 +56,12 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                             rounded-md
                             px-2
                             font-medium
+                            transition-colors
+                            h-3/4
+                            mr-5
                         ">
                             See Sailings
-                        </button>
+                    </button>
                 </div>
             </div>
         </article>
