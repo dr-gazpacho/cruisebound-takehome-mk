@@ -1,3 +1,5 @@
+import { CruiseApiResponse } from "../types";
+
 export class FetchError extends Error {
     constructor(
       message: string,
@@ -9,7 +11,7 @@ export class FetchError extends Error {
     }
   }
 
-export async function fetchTrips() {
+export async function fetchTrips(): Promise<CruiseApiResponse> {
         try {
             const response = await fetch('https://sandbox.cruisebound-qa.com/sailings', {
                 method: 'GET',
