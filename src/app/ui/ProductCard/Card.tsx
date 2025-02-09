@@ -19,11 +19,13 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                 ease-in-out
                 overflow-hidden 
                 my-4
+                border
+                border-gray-200
             "
             aria-label="Cruise Package"
         >
             {/* Image section */}
-            <div className="relative col-start-1 col-span-1 bg-slate-100">
+            <div className="relative col-start-1 col-span-1 bg-gray-100">
                 <div className="aspect-square md:aspect-4/3">
                     <Image 
                         src={cruise.ship.image as string} 
@@ -51,10 +53,10 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                             {cruise.name}
                         </h2>
                         <ul className="flex flex-wrap items-baseline gap-2 md:gap-0">
-                            <li className="mr-2 text-md font-bold slate-700">{cruise.region}</li>
-                            <li className="mr-2 text-md font-bold slate-700">{`${cruise.duration} nights`}</li>
+                            <li className="mr-2 text-md font-bold gray-700">{cruise.region}</li>
+                            <li className="mr-2 text-md font-bold gray-700">{`${cruise.duration} nights`}</li>
                             <li className="mr-1"><StarIcon /> {cruise.ship.rating}</li>
-                            <li className="text-xs text-slate-500">{`${cruise.ship.reviews} reviews`}</li>
+                            <li className="text-xs text-gray-500">{`${cruise.ship.reviews} reviews`}</li>
                         </ul>
                         <div className="flex flex-wrap items-baseline overflow-hidden">
                             {cruise.itinerary.map((stop, index) => {
@@ -77,16 +79,16 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                                 className="w-full h-auto object-contain"
                             />
                         </div>
-                        <h3 className="text-xs text-slate-500 md:mt-2 text-right w-full">
+                        <h3 className="text-xs text-gray-500 md:mt-2 text-right w-full">
                             {cruise.ship.line.name}
                         </h3>
                     </div>
                 </div>
 
                 {/* Bottom section */}
-                <div className="grid grid-cols-[1fr_auto] gap-4 md:gap-8 bg-slate-100 items-center p-4 md:px-6">
+                <div className="grid grid-cols-[1fr_auto] gap-4 md:gap-8 bg-gray-100 items-center p-4 md:px-6">
                     <div className="justify-self-end">
-                        <p className="text-xs text-slate-500">
+                        <p className="text-xs text-gray-500">
                             Interior from
                         </p>
                         <p className="font-bold text-lg md:text-xl justify-self-end">
