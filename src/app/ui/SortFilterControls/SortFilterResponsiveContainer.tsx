@@ -3,9 +3,9 @@ import { SortFilterMobile } from "./SortFilterMobile"
 
 export const SortFilterResponsiveContainer: React.FC = () => {
     return(
-        <div>
+        <aside>
             <SortFilterDesktop/>
             <SortFilterMobile/>
-        </div>
+        </aside>
     )
 }
