@@ -1,5 +1,6 @@
 import { Cruise } from "@/types"
 import Image from "next/image"
+import { StarIcon } from "./StarIcon"
 
 //card has three sections
 
@@ -49,14 +50,25 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
 
             {/* Main Card */}
             <div className="grid grid-rows-[2fr_1fr]">
+            
                 {/* Upper content area */}
                 <div className="grid grid-cols-[3fr_1fr] p-6">
-                    <section>
-                        <h2 className="text-xl font-bold">
-                            {cruise.name}
-                        </h2>
-                    </section>
-                    <section className="flex flex-col items-end">
+                <div className="flex flex-col gap-4">
+                    <h2 className="text-xl font-bold">
+                        {cruise.name}
+                    </h2>
+                    <ul className="flex items-baseline">
+                        <li className="mr-2">{cruise.region}</li>
+                        <li className="mr-2">{`${cruise.duration} nights`}</li>
+                        <li className="mr-1"><StarIcon /> {cruise.ship.rating}</li>
+                        <li className="text-xs text-slate-500">{`${cruise.ship.reviews} reviews`}</li>
+                    </ul>
+                    <div>
+                        {cruise.itinerary.join(' -> ')}
+                    </div>
+                    </div>
+
+                    <div className="flex flex-col items-end">
                         <div className="w-24">
                             <Image 
                                 src={cruise.ship.line.logo as string} 
@@ -66,11 +78,13 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                                 className="w-full h-auto object-contain"
                             />
                         </div>
-                        <h2 className="text-xs text-slate-500 mt-2">
+                        <h3 className="text-xs text-slate-500 mt-2">
                             {cruise.ship.line.name}
-                        </h2>
-                    </section>
+                        </h3>
+                    </div>
                 </div>
+                    
+
 
                 {/* Bottom section */}
                 <div className="grid grid-cols-[1fr_auto] gap-4 bg-slate-100 items-center px-6">
