@@ -66,11 +66,23 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
         const { cruises } = get();
         
         const sortedCruises = [...cruises].sort((a, b) => {
-        if (method === SortingConfig.PRICE_ASC) {
-            return a.price - b.price;
-        }
-        return b.price - a.price;
-        });
+        switch(method){
+            case SortingConfig.PRICE_ASC:
+                return a.price - b.price;
+            case SortingConfig.PRICE_DESC:
+                return b.price - a.price;
+            case SortingConfig.DURATION_ASC:
+                return a.duration - b.duration;
+            case SortingConfig.DURATION_DESC:
+                return b.duration - a.duration;
+            case SortingConfig.DEPARTURE_DATE_ASC:
+                return new Date(a.departureDate).getTime() - new Date(b.departureDate).getTime();
+            case SortingConfig.DEPARTURE_DATE_DESC:
+                return new Date(b.departureDate).getTime() - new Date(a.departureDate).getTime();
+            default:
+                return a.price - b.price;
+        }})
+            
         
         set({ 
             sortedCruises,
