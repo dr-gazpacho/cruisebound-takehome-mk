@@ -44,7 +44,8 @@ export enum SortingConfig {
 
 export enum FilterProperty {
   CRUISELINE = "CRUISELINE",
-  DEPARTURE_PORT = "DEPARTURE_PORT"
+  DEPARTURE_PORT = "DEPARTURE_PORT",
+  CLEAR_ALL = "CLEAR_ALL"
 }
 
 export interface FilterConfig {

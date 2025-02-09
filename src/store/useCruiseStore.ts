@@ -99,6 +99,7 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
     },
 
 filter: (incomingFilter: FilterConfig) => {
+
     const { cruises, sortMethod, filters } = get();
     
     let updatedFilters = [...filters];
@@ -124,7 +125,7 @@ filter: (incomingFilter: FilterConfig) => {
     }
     
     //reset filters to initial state if all values are "", apply no filtering
-    if (updatedFilters.length === 0) {
+    if (updatedFilters.length === 0 || incomingFilter.property === FilterProperty.CLEAR_ALL) {
         updatedFilters = [{
             property: null,
             value: ""

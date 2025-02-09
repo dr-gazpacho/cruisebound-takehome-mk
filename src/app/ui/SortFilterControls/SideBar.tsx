@@ -5,12 +5,12 @@ import { useCruiseStore } from '@/store/useCruiseStore';
 import { FilterProperty } from '@/types';
 
 const Sidebar = () => {
+    const { filter } = useCruiseStore();
     const [isOpen, setIsOpen] = useState(true);
     const [departurePort, setDeparturePort] = useState('');
     const [cruiseLine, setCruiseLine] = useState('');
     const [debouncedDeparturePort, setDebouncedDeparturePort] = useState('');
     const [debouncedCruiseLine, setDebouncedCruiseLine] = useState('');
-    const { filter } = useCruiseStore();
 
     const validateInput = (input: string) => {
         return input.replace(/[^a-zA-Z\s-]/g, '');
