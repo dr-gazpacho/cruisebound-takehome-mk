@@ -63,9 +63,9 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
 
     sort: (method: SortingConfig) => {
 
-        const { cruises } = get();
+        const { sortedCruises, sortMethod } = get();
         
-        const sortedCruises = [...cruises].sort((a, b) => {
+        const updatedSortedCruises = [...sortedCruises].sort((a, b) => {
         switch(method){
             case SortingConfig.PRICE_ASC:
                 return a.price - b.price;
@@ -85,8 +85,8 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
             
         
         set({ 
-            sortedCruises,
-            sortMethod: method
+            sortedCruises: updatedSortedCruises,
+            sortMethod: method ?? sortMethod
         });
     }
 }));
