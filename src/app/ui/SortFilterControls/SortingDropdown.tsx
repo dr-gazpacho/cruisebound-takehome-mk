@@ -50,6 +50,10 @@ const StyledSelect: React.FC<StyledSelectProps> = ({
         focus:ring-2
         focus:ring-blue-500
         focus:border-transparent
+        items-center
+        w-full
+        sm:w-auto
+        my-auto
       "
     >
       <option value="" disabled>{placeholder}</option>
@@ -94,7 +98,7 @@ export const SortingSelect = () => {
   const { sort } = useCruiseStore()
 
   return (
-    <div className="p-4">
+    <div className="w-full sm:w-auto self-end sm:self-auto">
       <StyledSelect
         options={options}
         placeholder="Sort by..."

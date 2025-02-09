@@ -13,11 +13,37 @@ export const TripToolBar: React.FC = () => {
     }
 
     return(
-        <div className="w-full relative flex justify-between">
-            <div className="flex items-center gap-2">
-                <p>{`${currentCruisesAvailable} trips found`}</p>
+        <div className="
+            w-full 
+            relative 
+            flex 
+            flex-col
+            space-y-4
+            md:flex-row
+            md:space-y-0
+            md:justify-between 
+            md:items-center
+            p-4
+        ">
+            {/* Trips found and Reset button group */}
+            <div className="
+                flex 
+                flex-col
+                space-y-2
+                sm:flex-row
+                sm:items-center
+                sm:gap-2
+            ">
+                <p className="
+                    text-sm 
+                    md:text-base
+                    self-end
+                    sm:self-auto
+                    my-auto 
+                ">{`${currentCruisesAvailable} trips found`}</p>
                 <button className="
                     inline-flex
+                    items-center
                     px-4
                     py-2
                     rounded-md
@@ -29,18 +55,24 @@ export const TripToolBar: React.FC = () => {
                     ease-in-out
                     border
                     border-gray-200
+                    w-full
+                    sm:w-auto
                 ">
                     Reset Filters
                 </button>
-                {/* 
-                    Reset button is great for MVP - for future improvement, this is an ideal space to show active filters as chip or something
-                    I think a nice UI would allow a user to clear individual filters without clearing all of them      
-                */}
             </div>
-            <div className="flex items-center gap-2">
-                <p>Sort by</p>
+            <div className="
+                flex 
+                flex-col
+                space-y-2
+                sm:flex-row
+                sm:items-center
+                sm:gap-2
+
+            ">
+                <p className="my-auto self-end sm:self-auto">Sort by</p>
                 <SortingSelect/>
             </div>
         </div>
     )
-} 
+}
