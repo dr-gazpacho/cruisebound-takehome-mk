@@ -5,7 +5,7 @@ import { useCruiseStore } from '@/store/useCruiseStore';
 import { FilterProperty } from '@/types';
 
 const Sidebar = () => {
-    const { filter } = useCruiseStore();
+    const { filter, filters } = useCruiseStore();
     const [isOpen, setIsOpen] = useState(true);
     const [departurePort, setDeparturePort] = useState('');
     const [cruiseLine, setCruiseLine] = useState('');
@@ -61,6 +61,14 @@ const Sidebar = () => {
             value: debouncedCruiseLine
         });
     }, [debouncedCruiseLine, filter]);
+
+
+    useEffect(() => {
+        if(!filters[0].property) {
+            setDeparturePort('');
+            setCruiseLine('');
+        }
+    }, [filters])
 
   return (
         <div className={`
