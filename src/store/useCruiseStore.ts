@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { fetchTrips } from '../utils/data';
-import type { CruiseApiResponse, Cruise } from '../types'; 
+import { CruiseApiResponse, Cruise, SortingConfig } from '../types'; 
 
 interface CruiseStore {
     //cruises will be "immutable" in the sense that I'll make shallow copies for sort/filter actions and render those
@@ -8,13 +8,13 @@ interface CruiseStore {
     error: CruiseApiResponse['error'];
     isLoading: boolean;
     
-    // New state for sorting
+    //separate state for sorted/filtered results and current sorting/filtering methods
     sortedCruises: Cruise[];
-    sortDirection: 'asc' | 'desc';
+    sortMethod: SortingConfig;
     
     //actions
     fetchCruises: () => Promise<void>;
-    sortByPrice: (direction: 'asc' | 'desc') => void;
+    sort: (method: SortingConfig) => void;
 }
 
 export const useCruiseStore = create<CruiseStore>((set, get) => ({
@@ -24,7 +24,8 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
     error: null,
     isLoading: false,
     sortedCruises: [],
-    sortDirection: 'asc',
+    sortMethod: SortingConfig.PRICE_ASC,
+
 
     //actions
     fetchCruises: async () => {
@@ -60,11 +61,12 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
     },
     
 
-    sortByPrice: (direction: 'asc' | 'desc') => {
+    sort: (method: SortingConfig) => {
+
         const { cruises } = get();
         
         const sortedCruises = [...cruises].sort((a, b) => {
-        if (direction === 'asc') {
+        if (method === SortingConfig.PRICE_ASC) {
             return a.price - b.price;
         }
         return b.price - a.price;
@@ -72,7 +74,7 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
         
         set({ 
             sortedCruises,
-            sortDirection: direction
+            sortMethod: method
         });
     }
 }));

@@ -1,5 +1,6 @@
 "use client"
 import { useCruiseStore } from "@/store/useCruiseStore"
+import { SortingSelect } from "./SortingDropdown";
 
 export const TripToolBar: React.FC = () => {
     const { sortedCruises, error, isLoading} = useCruiseStore();
@@ -36,8 +37,9 @@ export const TripToolBar: React.FC = () => {
                     I think a nice UI would allow a user to clear individual filters without clearing all of them      
                 */}
             </div>
-            <div>
-                Sort
+            <div className="flex items-center gap-2">
+                <p>Sort by</p>
+                <SortingSelect/>
             </div>
         </div>
     )

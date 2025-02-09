@@ -32,3 +32,12 @@ export interface CruiseApiResponse {
     body?: unknown;
   };
 }
+
+export enum SortingConfig {
+  PRICE_ASC = "PRICE_ASC",
+  PRICE_DESC = "PRICE_DESC",
+  DURATION_ASC = "DURATION_ASC",
+  DURATION_DESC = "DURATION_DESC",
+  DEPARTURE_DATE_ASC = "DEPARTURE_DATE_ASC",
+  DEPARTURE_DATE_DESC = "DEPARTURE_DATE_DESC"
+}
