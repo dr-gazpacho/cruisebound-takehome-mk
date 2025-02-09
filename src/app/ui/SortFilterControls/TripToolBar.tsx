@@ -3,10 +3,10 @@ import { useCruiseStore } from "@/store/useCruiseStore"
 import { SortingSelect } from "./SortingDropdown";
 
 export const TripToolBar: React.FC = () => {
-    const { sortedCruises, error, isLoading} = useCruiseStore();
+    const { orderedCruises, error, isLoading} = useCruiseStore();
 
     const shouldRender = !error && !isLoading;
-    const currentCruisesAvailable = sortedCruises.length;
+    const currentCruisesAvailable = orderedCruises.length;
 
     if(!shouldRender) {
         return null;

@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useCruiseStore } from "@/store/useCruiseStore"
 
 export const CardContainer: React.FC = () => {
-      const { sortedCruises, error, isLoading, fetchCruises } = useCruiseStore();
+      const { orderedCruises, error, isLoading, fetchCruises } = useCruiseStore();
 
       //simple but not beautiful - ideally would integrate the store with a Suspense component and show the user
       //some kind of loading state while they're waiting for the API or the sort/filter action (if it's slow or happening server-side)
@@ -17,7 +17,7 @@ export const CardContainer: React.FC = () => {
 
     return (
         <section>
-            {shouldRender && sortedCruises.map((cruise, index) => {
+            {shouldRender && orderedCruises.map((cruise, index) => {
                 return (
                     <Card key={index} cruise={cruise}/>
                 )

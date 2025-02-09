@@ -26,10 +26,12 @@ const Sidebar = () => {
         setCruiseLine(validatedInput);
     }, []);
     
-    // Debounced effects for each input
+    //basically will work as a debouncer for each input
+    //every time user inputs key it sets a timer
+    //when they hit a new key before the timer runs out, it clears the old timer and starts a new one
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-        setDebouncedDeparturePort(departurePort);
+            setDebouncedDeparturePort(departurePort);
         }, 300);
     
         return () => clearTimeout(timeoutId);
@@ -37,29 +39,27 @@ const Sidebar = () => {
     
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-        setDebouncedCruiseLine(cruiseLine);
+            setDebouncedCruiseLine(cruiseLine);
         }, 300);
     
         return () => clearTimeout(timeoutId);
     }, [cruiseLine]);
     
-    // Effect to trigger filter after debounce
+
+    //I don't know how scalable a manual debounce with a useEffect like this is, especially for responsive design
+    //this ultimately could probably move to its own generic hook we could share, like a useDebounce
     useEffect(() => {
-        if (debouncedDeparturePort !== '') {
         filter({
             property: FilterProperty.DEPARTURE_PORT, 
             value: debouncedDeparturePort
         });
-        }
     }, [debouncedDeparturePort, filter]);
     
     useEffect(() => {
-        if (debouncedCruiseLine !== '') {
         filter({
             property: FilterProperty.CRUISELINE, 
             value: debouncedCruiseLine
         });
-        }
     }, [debouncedCruiseLine, filter]);
 
   return (
