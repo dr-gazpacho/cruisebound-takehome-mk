@@ -12,3 +12,22 @@ export const StarIcon = () => (
         />
     </svg>
 )
+
+export const ArrowIcon = () => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="12" 
+    height="8" 
+    viewBox="0 0 12 8"
+    style={{ display: 'inline', margin: '0px 0px 0px 8px' }}
+  >
+    <path 
+      d="M0 4h8m-2 -2l3 2l-3 2" 
+      stroke="#0063FF" 
+      strokeWidth="1" 
+      fill="none" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+);
