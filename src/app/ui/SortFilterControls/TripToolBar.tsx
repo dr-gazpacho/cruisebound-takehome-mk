@@ -23,12 +23,12 @@ export const TripToolBar: React.FC = () => {
             relative 
             flex 
             flex-col
-            space-y-4
             md:flex-row
             md:space-y-0
             md:justify-between 
             md:items-center
-            p-4
+            pt-12
+            px-4
         ">
             {/* Trips found and Reset button group */}
             <div className="

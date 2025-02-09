@@ -10,7 +10,6 @@ export const SortFilterResponsiveContainer: React.FC<SortFilterResponsiveContain
             flex 
             md:flex-row
             flex-col
-            gap-8 
             row-start-2 
             items-center 
             sm:items-start 
@@ -22,7 +21,6 @@ export const SortFilterResponsiveContainer: React.FC<SortFilterResponsiveContain
             <div className="
                 flex 
                 flex-col 
-                gap-8 
                 w-full
                 md:transition-all 
                 md:duration-300
