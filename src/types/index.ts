@@ -41,3 +41,13 @@ export enum SortingConfig {
   DEPARTURE_DATE_ASC = "DEPARTURE_DATE_ASC",
   DEPARTURE_DATE_DESC = "DEPARTURE_DATE_DESC"
 }
+
+export enum FilterProperty {
+  CRUISELINE = "CRUISELINE",
+  DEPARTURE_PORT = "DEPARTURE_PORT"
+}
+
+export interface FilterConfig {
+  property: FilterProperty | null;
+  value: string;
+}

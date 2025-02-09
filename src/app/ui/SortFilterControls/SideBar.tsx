@@ -1,25 +1,66 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowIcon } from '../ProductCard/Icon';
+import { useCruiseStore } from '@/store/useCruiseStore';
+import { FilterProperty } from '@/types';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const [departurePort, setDeparturePort] = useState('');
-  const [cruiseLine, setCruiseLine] = useState('');
+    const [isOpen, setIsOpen] = useState(true);
+    const [departurePort, setDeparturePort] = useState('');
+    const [cruiseLine, setCruiseLine] = useState('');
+    const [debouncedDeparturePort, setDebouncedDeparturePort] = useState('');
+    const [debouncedCruiseLine, setDebouncedCruiseLine] = useState('');
+    const { filter } = useCruiseStore();
 
-  const validateInput = (input: string) => {
-    return input.replace(/[^a-zA-Z\s-]/g, '');
-  };
+    const validateInput = (input: string) => {
+        return input.replace(/[^a-zA-Z\s-]/g, '');
+      };
 
-  const handleDepartureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const validatedInput = validateInput(e.target.value);
-    setDeparturePort(validatedInput);
-  };
-
-  const handleCruiseLineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const validatedInput = validateInput(e.target.value);
-    setCruiseLine(validatedInput);
-  };
+    const handleDepartureChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const validatedInput = validateInput(e.target.value);
+        setDeparturePort(validatedInput);
+    }, []);
+    
+    const handleCruiseLineChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const validatedInput = validateInput(e.target.value);
+        setCruiseLine(validatedInput);
+    }, []);
+    
+    // Debounced effects for each input
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+        setDebouncedDeparturePort(departurePort);
+        }, 300);
+    
+        return () => clearTimeout(timeoutId);
+    }, [departurePort]);
+    
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+        setDebouncedCruiseLine(cruiseLine);
+        }, 300);
+    
+        return () => clearTimeout(timeoutId);
+    }, [cruiseLine]);
+    
+    // Effect to trigger filter after debounce
+    useEffect(() => {
+        if (debouncedDeparturePort !== '') {
+        filter({
+            property: FilterProperty.DEPARTURE_PORT, 
+            value: debouncedDeparturePort
+        });
+        }
+    }, [debouncedDeparturePort, filter]);
+    
+    useEffect(() => {
+        if (debouncedCruiseLine !== '') {
+        filter({
+            property: FilterProperty.CRUISELINE, 
+            value: debouncedCruiseLine
+        });
+        }
+    }, [debouncedCruiseLine, filter]);
 
   return (
         <div className={`
@@ -45,11 +86,13 @@ const Sidebar = () => {
             ${isOpen ? 'opacity-100 w-full' : 'opacity-0 w-0'}
         `}>
             <div className="p-4 pt-16 space-y-6">
-            {/* Departure Port Input */}
+
             <div className="space-y-2">
+
                 <label htmlFor="departurePort" className="block text-sm font-medium text-white">
-                Departure Port
+                    Departure Port
                 </label>
+
                 <input
                 id="departurePort"
                 type="text"
@@ -74,8 +117,9 @@ const Sidebar = () => {
             {/* Cruise Line Input */}
             <div className="space-y-2">
                 <label htmlFor="cruiseLine" className="block text-sm font-medium text-white">
-                Cruise Line
+                    Cruise Line
                 </label>
+
                 <input
                 id="cruiseLine"
                 type="text"
@@ -99,7 +143,6 @@ const Sidebar = () => {
             </div>
         </div>
 
-        {/* Toggle Button - Always visible */}
         <button
             onClick={() => setIsOpen(!isOpen)}
             className="

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { fetchTrips } from '../utils/data';
-import { CruiseApiResponse, Cruise, SortingConfig } from '../types'; 
+import { CruiseApiResponse, Cruise, SortingConfig, FilterConfig } from '../types'; 
 
 interface CruiseStore {
     //cruises will be "immutable" in the sense that I'll make shallow copies for sort/filter actions and render those
@@ -11,10 +11,12 @@ interface CruiseStore {
     //separate state for sorted/filtered results and current sorting/filtering methods
     sortedCruises: Cruise[];
     sortMethod: SortingConfig;
+    filters: FilterConfig[];
     
     //actions
     fetchCruises: () => Promise<void>;
     sort: (method: SortingConfig) => void;
+    filter: (filterConfig: FilterConfig) => void;
 }
 
 export const useCruiseStore = create<CruiseStore>((set, get) => ({
@@ -25,6 +27,12 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
     isLoading: false,
     sortedCruises: [],
     sortMethod: SortingConfig.PRICE_ASC,
+    filters: [
+        {
+            property: null,
+            value: ""
+        }
+    ],
 
 
     //actions
@@ -88,5 +96,19 @@ export const useCruiseStore = create<CruiseStore>((set, get) => ({
             sortedCruises: updatedSortedCruises,
             sortMethod: method ?? sortMethod
         });
+    },
+
+    filter: (incomingFilters: FilterConfig) => {
+
+        const { sortedCruises, sortMethod, filters } = get();
+
+        console.log(incomingFilters)
+
+        const updatedSortedCruises = sortedCruises
+
+        set({
+            sortedCruises: updatedSortedCruises,
+            filters: filters ?? filters
+        })
     }
 }));
