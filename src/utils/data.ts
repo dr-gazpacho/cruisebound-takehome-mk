@@ -16,7 +16,10 @@ export async function fetchTrips(): Promise<CruiseApiResponse> {
             const response = await fetch('https://sandbox.cruisebound-qa.com/sailings', {
                 method: 'GET',
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Origin': 'https://cruisebound-takehome-mk.vercel.app/',
+                    'Access-Control-Request-Method': 'GET',
+                    'Access-Control-Request-Headers': 'Content-Type,Accept'
                 }
           });
   
