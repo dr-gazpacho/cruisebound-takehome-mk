@@ -161,8 +161,7 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                     </button>
                 </div>
             </dialog>
-
-            {/* Backdrop for dialog */}
+            {/* not a formal focus trap, just a visual touch */}
             {isDialogOpen && (
                 <div 
                     className="fixed inset-0 bg-black/50 z-40"

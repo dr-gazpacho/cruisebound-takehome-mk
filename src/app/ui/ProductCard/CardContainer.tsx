@@ -54,7 +54,7 @@ export const CardContainer: React.FC = () => {
                     </button>
     
                     <button
-                        className="px-4 py-2 rounded-md border bg-blue-500 text-white border-blue-500"
+                        className="px-4 py-2 rounded-md border bg-sailings text-white border-sailings"
                     >
                         {currentPage}
                     </button>
