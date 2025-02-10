@@ -15,7 +15,8 @@ export const SortFilterResponsiveContainer: React.FC<SortFilterResponsiveContain
             sm:items-start 
             w-full
             h-full
-            relative 
+            relative
+            flex-1   
         ">
             <SideBar/>
             <div className="

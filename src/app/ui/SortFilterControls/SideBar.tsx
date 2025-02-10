@@ -74,90 +74,88 @@ const Sidebar = () => {
 
   return (
         <div className={`
-            min-h-screen
-            h-full
-            fixed
-            md:relative
-            top-0
-            left-0
-            transition-all
-            duration-300
-            bg-[#0F1829]
-            ${isOpen ? 'w-96' : 'w-0'}
-            flex
-            z-50
+                h-screen      
+                fixed md:sticky       
+                top-0                 
+                left-0                 
+                transition-all
+                duration-300
+                bg-[#0F1829]
+                ${isOpen ? 'w-96' : 'w-0'}
+                flex
+                z-50
             `}>
 
-        <div className={`
-            flex-1
-            overflow-hidden
-            transition-all
-            duration-300
-            ${isOpen ? 'opacity-100 w-full' : 'opacity-0 w-0'}
-        `}>
-            <div className="p-4 pt-16 space-y-6">
+            <div className={`
+                    flex-1
+                    overflow-hidden
+                    transition-all
+                    duration-300
+                    ${isOpen ? 'opacity-100 w-full' : 'opacity-0 w-0'}
+                `}>
+                <div className="p-4 pt-24 space-y-6">
 
-                <div className="space-y-2">
+                    <div className="space-y-2">
 
-                    <label htmlFor="departurePort" className="block text-sm font-medium text-white">
-                        Departure Port
-                    </label>
+                        <label htmlFor="departurePort" className="block text-sm font-medium text-white">
+                            Departure Port
+                        </label>
 
-                    <input
-                    id="departurePort"
-                    type="text"
-                    value={departurePort}
-                    onChange={handleDepartureChange}
-                    placeholder="Enter departure port"
-                    className="
-                        w-full
-                        px-3
-                        py-2
-                        bg-gray-700
-                        rounded-md
-                        focus:outline-none
-                        focus:ring-2
-                        focus:ring-blue-500
-                        text-white
-                        placeholder-gray-400
-                    "
-                    />
-                </div>
+                        <input
+                            id="departurePort"
+                            type="text"
+                            value={departurePort}
+                            onChange={handleDepartureChange}
+                            placeholder="Enter departure port"
+                            className="
+                                w-full
+                                px-3
+                                py-2
+                                bg-gray-700
+                                rounded-md
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-blue-500
+                                text-white
+                                placeholder-gray-400
+                            "
+                        />
+                    </div>
 
-                {/* Cruise Line Input */}
-                <div className="space-y-2">
-                    <label htmlFor="cruiseLine" className="block text-sm font-medium text-white">
-                        Cruise Line
-                    </label>
+                    {/* Cruise Line Input */}
+                    <div className="space-y-2">
+                        <label htmlFor="cruiseLine" className="block text-sm font-medium text-white">
+                            Cruise Line
+                        </label>
 
-                    <input
-                    id="cruiseLine"
-                    type="text"
-                    value={cruiseLine}
-                    onChange={handleCruiseLineChange}
-                    placeholder="Enter cruise line"
-                    className="
-                        w-full
-                        px-3
-                        py-2
-                        bg-gray-700
-                        rounded-md
-                        focus:outline-none
-                        focus:ring-2
-                        focus:ring-blue-500
-                        text-white
-                        placeholder-gray-400
-                    "
-                    />
-                </div>
+                        <input
+                        id="cruiseLine"
+                        type="text"
+                        value={cruiseLine}
+                        onChange={handleCruiseLineChange}
+                        placeholder="Enter cruise line"
+                        className="
+                            w-full
+                            px-3
+                            py-2
+                            bg-gray-700
+                            rounded-md
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-blue-500
+                            text-white
+                            placeholder-gray-400
+                        "
+                        />
+                    </div>
                 </div>
             </div>
 
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="
-                    absolute          
-                    -right-6 
+                    fixed md:absolute          
+                    left-6 md:-right-6
                     top-4
                     h-12
                     w-12
