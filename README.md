@@ -24,6 +24,8 @@ The app is deployed to [Vercel](https://cruisebound-takehome-mk.vercel.app/), bu
 
 - Filter menu
   - Build focus trap on mobile menu to prevent scrolling through results when side menu is open
+  - Sticky header
+  - Render "active filters" as a sort of chip set where you can clear some filters and leave others i.e. not all or nothing filter removal
   - Build predefined filter options e.g. map through results set, extract all unique names of Cruiselines, and show them in their own check box section. A user could check the box for both MSC and Carnival and see only sailings which match.
 - Accessiblity
   - Quality of life improvements for keyboard navigation through sailings - screen reader could announce more content of the card
@@ -32,4 +34,5 @@ The app is deployed to [Vercel](https://cruisebound-takehome-mk.vercel.app/), bu
   - Reimplement grid on sailings card to maximise available space
   - Manage long itineraries - ideally would work with someone on design with this, my first proposal would be to use an ellipsis between first and last entries of long itineraries
   - Build some sort of interactive map where someone can see the Departure/Return ports as well as all the stops
+  - Break down Monolithic components like Sidebar and Card into landmark sections e.g. Card could be sections like "Date and Image", "Sailing and Cruiseline", "Reviews", "Itinerary", and "Price and Actions"
 

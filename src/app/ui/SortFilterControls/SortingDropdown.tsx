@@ -67,6 +67,8 @@ const StyledSelect: React.FC<StyledSelectProps> = ({
 };
 
 
+//ideal implementation lets options passed in as props
+//same with "sort" method, could type generic zustand functions e.g. (any) => void to be passed in and used to set state
 export const SortingSelect = () => {
   const options = [
     { 
