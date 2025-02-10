@@ -1,7 +1,6 @@
 # Cruisebound
 
-A responsive, deployed web app that uses React, Next, Zustand, NPM, and Tailwind CSS. A user can view available sailings, sort them a few different ways, and apply some filter. Results are
-paginated
+A responsive, deployed web app that uses React, Next, Zustand, NPM, and Tailwind CSS. A user can view available sailings, sort them a few different ways, and apply some filters. Results are paginated with 10 per page.
 
 ## Getting Started
 
@@ -19,12 +18,14 @@ There's only a few unit tests for some utils. Run them with `npm test`. Overall,
 
 ## Features
 
-- The app fetches a static list of sailings from a test endpoint which are then rendered on teh screen
-- Results can be filtered: filter menu defaults to open for both, can be toggled open/closed via `->` icon in the upper left of screen
-- Results can be sorted: sort menu in upper right of screen, applies to complete result set
-- Results are paginated: max ten results per page, moving to a new page visually scrolls the user to the top of the page
+- The app fetches a static list of sailings from a test endpoint which are then rendered on the screen
+  - Results can be filtered: filter menu defaults to open for both, can be toggled open/closed via `->` icon in the upper left of screen
+  - Results can be sorted: sort menu in upper right of screen, applies to complete result set
+  - Results are paginated: max ten results per page, moving to a new page visually scrolls the user to the top of the page
 
 ## Futures
+
+In the world where this is THE product, of course we would be constantly developing and improving. These are some next steps I'd ticket:
 
 - Data
   - Ideally, I'd like to build a transformer layer between the API and the UI e.g. let's say that the prices the API returns are agnostic to a specific currency, I'd like to map through the whole response and preformat information/enrich the response so the UI can just pluck information out of the store and reder it. Same would be true for the little trip duration display: I'd run the date util on each cruise once when the API returns information, then hold that in the store to keep me from re-calculating it on every render
