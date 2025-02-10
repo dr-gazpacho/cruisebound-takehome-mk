@@ -9,24 +9,18 @@ export class FetchError extends Error {
       super(message);
       this.name = 'FetchError';
     }
-  }
+}
 
 export async function fetchTrips(): Promise<CruiseApiResponse> {
         try {
-            const response = await fetch('https://sandbox.cruisebound-qa.com/sailings', {
+            const response = await fetch('/api/cruises', {
                 method: 'GET',
                 headers: {
-                    'Accept': 'application/json',
-                    'Origin': 'https://cruisebound-takehome-mk.vercel.app/',
-                    'Access-Control-Request-Method': 'GET',
-                    'Access-Control-Request-Headers': 'Content-Type,Accept',
-                    'Acess-Control-Allow-Origin': '*'
+                    'Accept': 'application/json'
                 }
-          });
+            });
   
             if (!response.ok) {
-                //Throw typed error - ideally the real world APIs send more semantic codes/status/text
-                //Would add some sort of logger here - push to something like Datadog
                 throw new FetchError(
                     `HTTP error! status: ${response.status}`,
                     response.status,
@@ -35,10 +29,8 @@ export async function fetchTrips(): Promise<CruiseApiResponse> {
             }
   
             const data = await response.json();
-            return {data, error: null} ;
+            return {data, error: null};
         } catch (err: unknown) {
-    
-            //Same as above in the catch block - forward error messaging to some type of logger
             if (err instanceof FetchError) {
                 return {
                     data: null,
@@ -50,7 +42,6 @@ export async function fetchTrips(): Promise<CruiseApiResponse> {
                 };
             }
 
-            //Same as above
             if (err instanceof Error) {
                 return {
                     data: null,
@@ -59,13 +50,12 @@ export async function fetchTrips(): Promise<CruiseApiResponse> {
                     }
                 };
             }
-            // for truly unknown errors
+
             return {
                 data: null,
                 error: {
                     message: 'An unknown error occurred'
                 }
             };
-
         }
 }
