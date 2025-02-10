@@ -3,6 +3,7 @@ import Image from "next/image"
 import { StarIcon, ArrowIcon } from "./Icon"
 import * as Fallback from '../../../public/cb.jpeg'
 import React from 'react'
+import { formatDateRange } from "@/utils/date"
 
 type CardProps = {
     cruise: Cruise;
@@ -40,7 +41,7 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                     dateTime="2022-11-23" 
                     className="absolute top-4 left-4 bg-black/50 text-white rounded p-2"
                 >
-                    {cruise.departureDate}
+                    {formatDateRange(cruise.departureDate, cruise.returnDate)}
                 </time>
             </div>
 
