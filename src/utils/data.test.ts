@@ -29,7 +29,10 @@ describe('fetchTrips', () => {
         {
             method: 'GET',
             headers: {
-            'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Origin': 'https://cruisebound-takehome-mk.vercel.app/',
+                'Access-Control-Request-Method': 'GET',
+                'Access-Control-Request-Headers': 'Content-Type,Accept'
             }
         }
         );
