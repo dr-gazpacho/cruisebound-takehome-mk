@@ -22,11 +22,15 @@ The app is deployed to [Vercel](https://cruisebound-takehome-mk.vercel.app/), bu
 
 ## Futures
 
+- Data
+  - Ideally, I'd like to build a transformer layer between the API and the UI e.g. let's say that the prices the API returns are agnostic to a specific currency, I'd like to map through the whole response and preformat information/enrich the response so the UI can just pluck information out of the store and reder it. Same would be true for the little trip duration display: I'd run the date util on each cruise once when the API returns information, then hold that in the store to keep me from re-calculating it on every render
+  - SSR semantically - pack the base HTML with as information and metadata as possible
 - Filter menu
   - Build focus trap on mobile menu to prevent scrolling through results when side menu is open
   - Sticky header
   - Render "active filters" as a sort of chip set where you can clear some filters and leave others i.e. not all or nothing filter removal
   - Build predefined filter options e.g. map through results set, extract all unique names of Cruiselines, and show them in their own check box section. A user could check the box for both MSC and Carnival and see only sailings which match.
+  - Would refactor the filters to use a Set to get access to some nicer methods for adding/removing filters
 - Accessiblity
   - Quality of life improvements for keyboard navigation through sailings - screen reader could announce more content of the card
 - Components
