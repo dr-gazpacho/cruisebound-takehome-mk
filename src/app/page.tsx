@@ -1,6 +1,6 @@
-import { Sidebar } from "./ui/SortFilterControls/SideBar";
-import { TripToolBar } from "./ui/SortFilterControls/TripToolBar";
-import { CardContainer } from "./ui/ProductCard/CardContainer";
+import { Sidebar } from "../ui/SortFilterControls/SideBar";
+import { TripToolBar } from "../ui/SortFilterControls/TripToolBar";
+import { CardContainer } from "../ui/ProductCard/CardContainer";
 
 export default function Home() {
 
