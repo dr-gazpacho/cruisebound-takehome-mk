@@ -27,7 +27,7 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
         >
             {/* Image section */}
             <div className="relative col-start-1 col-span-1 bg-gray-100">
-                <div className="aspect-square md:aspect-4/3">
+                <div className="aspect-square md:aspect-4/3 relative">
                     <Image 
                         src={cruise.ship.image as string ?? Fallback} 
                         alt={cruise.ship.name} 
