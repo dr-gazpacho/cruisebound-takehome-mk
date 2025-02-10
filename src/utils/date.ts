@@ -16,5 +16,5 @@ export function formatDateRange(date1: string, date2: string): string {
         return `${monthName1} ${day1}-${day2}, ${year1}`;
     }
     
-    return `${monthName1} ${day1}-${monthName2} ${day2}, ${year1}`;
+    return `${monthName1} ${day1}-${monthName2} ${day2}, ${year2}`;
 }
