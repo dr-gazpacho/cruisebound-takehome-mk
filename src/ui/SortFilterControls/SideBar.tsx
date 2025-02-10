@@ -4,7 +4,7 @@ import { ArrowIcon } from '../ProductCard/Icon';
 import { useCruiseStore } from '@/store/useCruiseStore';
 import { FilterProperty } from '@/types';
 import Image from 'next/image';
-import * as CB_BLUE from '../../../public/cb_blue.png'
+import * as CB_BLUE from '../../public/cb_blue.png'
 
 interface SidebarProps {
     children: React.ReactElement | React.ReactElement[];

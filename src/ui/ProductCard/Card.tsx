@@ -1,7 +1,7 @@
 import { Cruise } from "@/types"
 import Image from "next/image"
 import { StarIcon, ArrowIcon } from "./Icon"
-import * as Fallback from '../../../public/cb.jpeg'
+import * as Fallback from '../../public/cb.jpeg'
 import React, { useState } from 'react'
 import { formatDateRange } from "@/utils/date"
 
