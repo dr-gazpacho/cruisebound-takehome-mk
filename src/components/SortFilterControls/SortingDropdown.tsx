@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
-import { SortingConfig } from '../../types';
-import { useCruiseStore } from '../../store/useCruiseStore';
+import { useCruiseStore } from '@/store/useCruiseStore';
+import { SortingConfig } from '@/types';
 
 interface StyledSelectProps {
   options: Array<{
