@@ -27,7 +27,7 @@ export const TripToolBar: React.FC = () => {
             md:space-y-0
             md:justify-between 
             md:items-center
-            pt-12
+            pt-16
             px-4
         ">
             {/* Trips found and Reset button group */}
