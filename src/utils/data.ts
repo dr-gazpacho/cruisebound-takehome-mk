@@ -19,7 +19,8 @@ export async function fetchTrips(): Promise<CruiseApiResponse> {
                     'Accept': 'application/json',
                     'Origin': 'https://cruisebound-takehome-mk.vercel.app/',
                     'Access-Control-Request-Method': 'GET',
-                    'Access-Control-Request-Headers': 'Content-Type,Accept'
+                    'Access-Control-Request-Headers': 'Content-Type,Accept',
+                    'Acess-Control-Allow-Origin': '*'
                 }
           });
   
