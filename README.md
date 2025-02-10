@@ -43,4 +43,5 @@ There's only a few unit tests for some utils. Run them with `npm test`. Overall,
   - Manage long itineraries - ideally would work with someone on design with this, my first proposal would be to use an ellipsis between first and last entries of long itineraries
   - Build some sort of interactive map where someone can see the Departure/Return ports as well as all the stops
   - Break down Monolithic components like Sidebar and Card into landmark sections e.g. Card could be sections like "Date and Image", "Sailing and Cruiseline", "Reviews", "Itinerary", and "Price and Actions"
+  - Pagination look and feel isn't perfectly to spec, would keep the functionality that exists and refine the look of the UI
 
