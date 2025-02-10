@@ -29,6 +29,7 @@ There's only a few unit tests for some utils. Run them with `npm test`. Overall,
 - Data
   - Ideally, I'd like to build a transformer layer between the API and the UI e.g. let's say that the prices the API returns are agnostic to a specific currency, I'd like to map through the whole response and preformat information/enrich the response so the UI can just pluck information out of the store and reder it. Same would be true for the little trip duration display: I'd run the date util on each cruise once when the API returns information, then hold that in the store to keep me from re-calculating it on every render
   - SSR semantically - pack the base HTML with as information and metadata as possible
+  - Devise some strategy to cache cruiseline images in a CDN so we're not fetching each image every time
 - Filter menu
   - Build focus trap on mobile menu to prevent scrolling through results when side menu is open
   - Sticky header
