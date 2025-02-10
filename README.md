@@ -13,6 +13,10 @@ The app is deployed to [Vercel](https://cruisebound-takehome-mk.vercel.app/), bu
 1. Stand up the app on the dev server with `npm run dev`
 1. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Testing
+
+There's only a few unit tests for some utils. Run them with `npm test`. Overall, I like writing code in the style of functional programming. In a perfect world during integration or E2E testing, I'd also run some simulated user tests e.g. Playwright or Cypress.
+
 ## Features
 
 - The app fetches a static list of sailings from a test endpoint which are then rendered on teh screen
