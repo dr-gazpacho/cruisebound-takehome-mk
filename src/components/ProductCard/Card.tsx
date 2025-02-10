@@ -21,7 +21,8 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
         <>
             <article className="
                     grid
-                    grid-cols-1 md:grid-cols-[1fr_2fr]
+                    grid-cols-1
+                    md:grid-cols-[1fr_2fr]
                     w-full rounded-xl
                     shadow-xl hover:shadow-2xl
                     transition-shadow
@@ -35,12 +36,21 @@ export const Card: React.FC<CardProps> = ({ cruise }) => {
                 aria-label="Cruise Packages"
             >
                 {/* Image section */}
-                <div className="relative col-start-1 col-span-1 bg-gray-100">
-                    <div className="aspect-square md:aspect-4/3 relative">
+                <div className="
+                    relative 
+                    col-start-1 
+                    col-span-1 
+                    bg-gray-100 
+                    h-full
+                    md:h-full 
+                    w-full  
+                    aspect-[4/3] md:aspect-auto 
+                "> 
+                    <div className="h-full w-full">
                         <Image 
                             src={cruise.ship.image as string ?? Fallback} 
                             alt={cruise.ship.name} 
-                            className="object-cover"
+                            className="object-cover h-full w-full" 
                             fill
                             sizes="(max-width: 768px) 100vw, 33vw"
                         />
